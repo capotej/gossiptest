@@ -10,16 +10,20 @@ class ServerSet
   def <<(item)
     puts "registering #{item}"
     @set << item
-    puts "#{@set.inspect}"
+    puts "#{@set.size} #{@set.inspect}"
     @set
   end
 
   def delete(item)
     puts "deregistering #{item}"
     @set.delete(item)
-    puts "#{@set.inspect}"
+    puts "#{@set.size} #{@set.inspect}"
     @set
   end
+
+  def each
+    @set.each { |item| yield item }
+  end    
 
 end
 
